@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <label for="name">Введите имя: </label>
+        <input type="text" name="name" id="name-field"/>
+
+        <label for="email">Введите год рождения: </label>
+        <input type="text" name="birth-year-field" id="birth-year-field"/>
+
+        <input type="submit" id="send" value="Отправить"/>
+
+        <p class="dasd">Ошибки поля имени:</p>
+        <p class="aa" id="message"></p>
+
+        <p class="dasd">Ошибки поля года рождения:</p>
+        <p class="aa" id="meassage2"></p>
+
+        <p class="aa" id="meassage3"></p>
+    </form>
+
+    <script>
+document.getElementById("send").addEventListener("click", function (event) {
+  event.preventDefault();
+
+  var nameField = document.getElementById("name-field");
+  var birthField = document.getElementById("birth-year-field");
+  var message = document.getElementById("message");
+  var message2 = document.getElementById("meassage2");
+  var message3 = document.getElementById("meassage3");
+
+  if (nameField.value.length < 2 && nameField.value.length >= 1) {
+    nameField.setAttribute("style", "border-color: red;")
+    message.innerText = "Символов не должно быть меньше двух";
+  } else if (nameField.value === "") {
+    nameField.setAttribute("style", "border-color: red;")
+    message.innerText = "Поле не должно быть пустым";
+  }else{
+    nameField.setAttribute("style", "border-color: black;")
+    message.innerText = "";
+  }
+
+   if (birthField.value.length < 4 && birthField.value.length >= 1) {
+    birthField.setAttribute("style", "border-color: red;")
+    message2.innerText = "Символов не должно быть меньше 4";
+  } else if (birthField.value === "") {
+    birthField.setAttribute("style", "border-color: red;")
+    message2.innerText = "Поле не должно быть пустым";
+  }else{
+    birthField.setAttribute("style", "border-color: black;")
+    message2.innerText = "";
+  }
+  if (Number(birthField.value) > 2006) {
+    birthField.setAttribute("style", "border-color: red;")
+    message2.innerText = 'Вам еще нет 18 лет:(';
+  }else{
+    birthField.setAttribute("style", "border-color: black;")
+    message2.innerText = "";
+  }
+  if (message.innerText  === "" && message2.innerText === "") {
+  message3.innerText = 'Все супер';
+}else{
+    message3.innerText = '';
+}
+});
+    </script>
+</body>
+</html>

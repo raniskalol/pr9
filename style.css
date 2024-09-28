@@ -1,0 +1,16 @@
+.aa{
+    color: red;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+label{
+    width: 200px;
+    margin-bottom: 10px;
+}
+input{
+    width: 200px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
